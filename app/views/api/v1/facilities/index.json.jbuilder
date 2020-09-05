@@ -1,0 +1,1 @@
+json.array! @facilities, partial: 'api/partial/facility', as: :facility
