@@ -1,0 +1,31 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("DB_USERNAME") { 'root' } %>
+  host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
+  password: <%= ENV.fetch("DB_PASSWORD") { '' } %>
+
+development:
+  <<: *default
+  database: padel_server_dev
+
+test:
+  <<: *default
+  database: padel_server_test
+
+staging:
+  <<: *default
+  database: <%= ENV['DB_DATABASE'] %>
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
+
+production:
+  <<: *default
+  database: <%= ENV['DB_DATABASE'] %>
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_c
