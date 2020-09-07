@@ -1,0 +1,10 @@
+json.extract! user,
+              :id,
+              :name,
+              :gender,
+              :email,
+              :phone,
+              :birthday,
+              :image_url,
+              :created_at,
+              :updated_at
