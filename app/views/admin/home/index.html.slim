@@ -1,0 +1,20 @@
+.container-fluid
+  .main_block.ms1
+    h2 ユーザー画像
+    table.table.table-striped
+      thead
+        tr
+          th ID
+          th 名前
+          th 詳細
+          th 住所
+          th 画像
+      tbody
+          - @facilities.each do |facility|
+            tr
+              th = facility.id
+              th = facility.name
+              th = facility.description
+              th = facility.address
+              th = image_tag facility.image_url, style: 'width:80px;'
+
