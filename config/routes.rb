@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions'
+  }
   root 'admin/home#index'
   namespace :admin do
     resources :home, only: %i[index show]
