@@ -1,4 +1,5 @@
 class Api::V1::FacilitiesController < Api::ApplicationController
+  before_action :authenticate_user!
   before_action :set_facility, only: :show
 
   def index

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  include DeviseTokenAuth::Concerns::User
   extend Enumerize
   enumerize :gender, in: %i[
     male
