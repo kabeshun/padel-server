@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PadelServer</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>PadelServer</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <header>
+    <nav>
+      <% if admin_user_signed_in? %>
+      <strong> <%== current_admin_user.email %></strong>
+      <%= link_to 'プロフィール変更', edit_admin_user_registration_path %>
+      <%= link_to 'ログアウト', destroy_admin_user_session_path, method: :delete %>
+      <% else %>
+      <%= link_to 'サインアップ', new_admin_user_registration_path %>
+      <%= link_to 'ログイン', new_admin_user_session_path %>
+      <% end %>
+    </nav>
+  </header>
+
+  <%= yield %>
+</body>
+
 </html>
