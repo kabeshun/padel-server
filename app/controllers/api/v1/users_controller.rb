@@ -9,7 +9,7 @@ class Api::V1::UsersController < Api::ApplicationController
   end
 
   def set_user
-    params[:id] = 1
     @user = User.find(params[:id])
+    @user = current_user
   end
 end
