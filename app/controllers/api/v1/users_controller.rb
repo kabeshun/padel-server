@@ -8,8 +8,12 @@ class Api::V1::UsersController < Api::ApplicationController
   def show 
   end
 
+  def me
+    @user = current_user
+    render :show
+  end
+
   def set_user
     @user = User.find(params[:id])
-    @user = current_user
   end
 end
