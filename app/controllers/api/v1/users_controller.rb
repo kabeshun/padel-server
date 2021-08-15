@@ -5,6 +5,11 @@ class Api::V1::UsersController < Api::ApplicationController
     @users = User.all
   end
 
+  def me
+    binding.pry
+    @me = current_user
+  end
+
   def show 
   end
 
