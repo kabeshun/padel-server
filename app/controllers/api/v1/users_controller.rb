@@ -6,8 +6,8 @@ class Api::V1::UsersController < Api::ApplicationController
   end
 
   def me
-    binding.pry
     @me = current_user
+    @me_favorites = current_user.favorites.where(is_favorite: true)
   end
 
   def show 

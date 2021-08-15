@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :facilities, only: %i[index show]
+      resources :favorites do 
+        collection do
+          post 'set_favorite'
+          post 'remove_favorite'
+        end 
+      end
       resources :users, only: %i[index show] do 
         collection do
           get 'me'

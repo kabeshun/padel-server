@@ -10,4 +10,6 @@ class User < ApplicationRecord
     female
     other
   ]
+  has_many :favorites
+  has_many :facilities, through: :favorites
 end

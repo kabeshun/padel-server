@@ -7,6 +7,7 @@ class Api::V1::FacilitiesController < Api::ApplicationController
   end
 
   def show 
+    @user_favorite = current_user.favorites.find_by(facility_id: @facility.id)
   end
 
   def set_facility

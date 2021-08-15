@@ -17,6 +17,13 @@ create_table "users", force: :cascade do |t|
   t.datetime  "updated_at",                                          null: false
 end
 
+create_table "favorites", force: :cascade do |t|
+  t.bigint  "user_id",        null: false  
+  t.bigint  "facility_id",    null: false
+  t.boolean "is_favorite",    null: false,            default: false
+  t.index ["user_id", "facility_id"], name: "index_favorites_user_id_and_facility_id", unique: true
+end
+
 add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
 add_index "users", ["encrypted_password"], name: "index_users_on_encrypted_password", using: :btree

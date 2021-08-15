@@ -9,3 +9,8 @@ json.extract! @me,
               :image_url,
               :created_at,
               :updated_at
+json.favorites do
+  json.array!(@me_favorites) do |me_favorite|
+    json.name me_favorite.facility.name
+  end
+end
